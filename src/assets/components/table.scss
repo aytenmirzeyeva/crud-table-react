@@ -1,0 +1,65 @@
+$color_1: #ffffff;
+$color_2: #000000;
+$background-color_1: #333;
+$background-color_2: #ededed;
+$background-color_3: #ffffff;
+
+table {
+  border: 1px solid #d9d9d9;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  text-align: center;
+  margin: 50px 0;
+  box-shadow: 0px 4px 10px rgb(0, 0, 0, 0.1);
+  th {
+    border: none;
+    background-color: $background-color_1;
+    color: $color_1;
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  td {
+    border: 1px solid #d9d9d9;
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    .delete-btn {
+      font-size: 30px;
+      color: lightcoral;
+      cursor: pointer;
+      &:hover {
+        color: #da6060;
+      }
+    }
+    .view-btn {
+      font-size: 30px;
+      color: #7da0c4;
+      cursor: pointer;
+      &:hover {
+        color: #5f94c9;
+      }
+    }
+  }
+  tr {
+    &:nth-child(even) {
+      td {
+        background-color: $background-color_2;
+        color: $color_2;
+      }
+    }
+    &:nth-child(odd) {
+      td {
+        background-color: $background-color_3;
+        color: $color_2;
+      }
+    }
+  }
+}
