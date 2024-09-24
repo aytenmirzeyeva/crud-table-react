@@ -32,7 +32,14 @@ export default function BasicModal({ open, handleClose }) {
     });
   }
   const sendData = () => {
-    axios.post(`${BASE_URL}`, inputValues).then((res) => console.log(res.data));
+    axios.post(`${BASE_URL}`, inputValues).then((res) => {
+      console.log(res.data);
+      setInputValues({
+        category: "",
+        title: "",
+        price: "",
+      });
+    });
   };
   return (
     <div>
@@ -47,18 +54,31 @@ export default function BasicModal({ open, handleClose }) {
             onChange={handleChange}
             placeholder="Enter category..."
             name="category"
+            value={inputValues.category}
           />
           <Input
             onChange={handleChange}
             placeholder="Enter title..."
             name="title"
+            value={inputValues.title}
           />
           <Input
             onChange={handleChange}
             placeholder="Enter price..."
             name="price"
+            value={inputValues.price}
           />
-          <Button btnText="Send" onClick={sendData} />
+          <Button
+            btnText="Send"
+            onClick={sendData}
+            disabled={
+              inputValues.category == "" ||
+              inputValues.title == "" ||
+              inputValues.price == ""
+                ? true
+                : false
+            }
+          />
         </Box>
       </Modal>
     </div>

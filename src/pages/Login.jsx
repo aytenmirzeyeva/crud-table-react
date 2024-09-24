@@ -3,23 +3,21 @@ import Input from "../components/Input";
 import Label from "../components/label";
 import Button from "../components/Button";
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [inputValues, setInputValues] = useState({
+    username: "",
+    password: "",
+  });
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setInputValues((values) => {
+      return { ...values, [name]: value };
+    });
+  }
   const sendData = () => {
-    const data = {
-      username,
-      password,
-    };
-    console.log(data);
-    setUsername("");
-    setPassword("");
-  };
-  const onHandleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-  const onHandlePassword = (e) => {
-    setPassword(e.target.value);
+    setInputValues({
+      username: "",
+      password: "",
+    });
   };
 
   return (
@@ -32,8 +30,9 @@ const Login = () => {
             inputId="username"
             placeholder="Enter username..."
             type="text"
-            onChange={onHandleUsername}
-            value={username}
+            onChange={handleChange}
+            value={inputValues.username}
+            name="username"
           />
         </div>
         <div className="input-group">
@@ -42,15 +41,20 @@ const Login = () => {
             inputId="password"
             placeholder="Enter password..."
             type="password"
-            onChange={onHandlePassword}
-            value={password}
+            onChange={handleChange}
+            value={inputValues.password}
+            name="password"
           />
         </div>
 
         <Button
           btnText="Log In"
           onClick={sendData}
-          disabled={username == "" || password == "" ? true : false}
+          disabled={
+            inputValues.username == "" || inputValues.password == ""
+              ? true
+              : false
+          }
         />
       </div>
     </div>
