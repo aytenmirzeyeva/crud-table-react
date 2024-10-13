@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../components/Input";
-import Label from "../components/label";
+import Label from "../components/Label";
 import Button from "../components/Button";
 const Login = () => {
   const [inputValues, setInputValues] = useState({
@@ -18,12 +18,13 @@ const Login = () => {
       username: "",
       password: "",
     });
+    console.log(inputValues);
   };
 
   return (
     <div className="container">
       <h1>Log In</h1>
-      <div className="login-form">
+      <form>
         <div className="input-group">
           <Label whatFor="username" labelText="Username: " />
           <Input
@@ -56,7 +57,7 @@ const Login = () => {
               : false
           }
         />
-      </div>
+      </form>
     </div>
   );
 };

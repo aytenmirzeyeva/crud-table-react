@@ -1,0 +1,60 @@
+import React, { useState } from "react";
+import PasswordChecklist from "react-password-checklist";
+import Input from "../components/Input";
+import Label from "../components/Label";
+import Button from "../components/Button";
+const Register = () => {
+  const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
+  const [btn, setBtn] = useState(true);
+
+  return (
+    <>
+      <h1>Register</h1>
+      <form>
+        <div className="input-group">
+          <Label whatFor="username" labelText="Username: " />
+          <Input
+            inputId="username"
+            placeholder="Enter username..."
+            type="text"
+          />
+        </div>
+        <div className="input-group">
+          <Label labelText="Password:" whatFor="password" />
+          <Input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            inputId="password"
+            placeholder="Enter password..."
+          />
+        </div>
+        <div className="input-group">
+          <Label labelText="Password Again:" whatFor="password-repeat" />
+          <Input
+            type="password"
+            onChange={(e) => setPasswordAgain(e.target.value)}
+            inputId="password-repeat"
+            placeholder="Enter password again..."
+          />
+        </div>
+        <div className="input-group">
+          <PasswordChecklist
+            rules={["minLength", "specialChar", "number", "capital", "match"]}
+            minLength={5}
+            value={password}
+            valueAgain={passwordAgain}
+            onChange={(e) => {
+              if (e) {
+                setBtn(false);
+              }
+            }}
+            className="checklist"
+          />
+        </div>
+        <Button btnText="Register" disabled={btn} />
+      </form>
+    </>
+  );
+};
+export default Register;
