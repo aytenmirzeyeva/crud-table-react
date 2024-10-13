@@ -1,11 +1,15 @@
 .input {
-  width: 100%;
+  width: 60%;
   padding: 10px;
   border: 1px solid #cecece;
   margin-bottom: 10px;
   border-radius: 5px;
   outline: none;
   font-size: 18px;
+  @media (max-width:1056px){
+    width: 100%;
+
+  }
   &:focus {
     border-color: #66afe9;
     outline: none;

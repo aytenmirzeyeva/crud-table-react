@@ -26,10 +26,9 @@ const Login = () => {
       <h1>Log In</h1>
       <form>
         <div className="input-group">
-          <Label whatFor="username" labelText="Username: " />
+          <Label whatFor="username" labelText="Username" />
           <Input
             inputId="username"
-            placeholder="Enter username..."
             type="text"
             onChange={handleChange}
             value={inputValues.username}
@@ -37,10 +36,9 @@ const Login = () => {
           />
         </div>
         <div className="input-group">
-          <Label whatFor="password" labelText="Password: " />
+          <Label whatFor="password" labelText="Password" />
           <Input
             inputId="password"
-            placeholder="Enter password..."
             type="password"
             onChange={handleChange}
             value={inputValues.password}

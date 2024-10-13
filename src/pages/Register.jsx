@@ -10,32 +10,35 @@ const Register = () => {
 
   return (
     <>
-      <h1>Register</h1>
       <form>
         <div className="input-group">
-          <Label whatFor="username" labelText="Username: " />
+          <Label whatFor="username" labelText="Your name" />
           <Input
             inputId="username"
-            placeholder="Enter username..."
             type="text"
           />
         </div>
         <div className="input-group">
-          <Label labelText="Password:" whatFor="password" />
+          <Label labelText="Email" whatFor="email" />
+          <Input
+            type="email"
+            inputId="email"
+          />
+        </div>
+        <div className="input-group">
+          <Label labelText="Password" whatFor="password" />
           <Input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             inputId="password"
-            placeholder="Enter password..."
           />
         </div>
         <div className="input-group">
-          <Label labelText="Password Again:" whatFor="password-repeat" />
+          <Label labelText="Re-enter password" whatFor="password-repeat" />
           <Input
             type="password"
             onChange={(e) => setPasswordAgain(e.target.value)}
             inputId="password-repeat"
-            placeholder="Enter password again..."
           />
         </div>
         <div className="input-group">
