@@ -17,6 +17,10 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 export default function BasicModal({ open, handleClose }) {
@@ -69,6 +73,7 @@ export default function BasicModal({ open, handleClose }) {
             value={inputValues.price}
           />
           <Button
+            className="modal-btn"
             btnText="Send"
             onClick={sendData}
             disabled={
