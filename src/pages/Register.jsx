@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PasswordChecklist from "react-password-checklist";
 import Input from "../components/Input";
-import Label from "../components/Label";
+import Label from "../components/Label.jsx";
 import Button from "../components/Button";
 const Register = () => {
   const [password, setPassword] = useState("");
