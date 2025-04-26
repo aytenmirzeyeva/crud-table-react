@@ -5,3 +5,4 @@ const Label = ({ whatFor, labelText }) => {
 };
 
 export default Label;
+
